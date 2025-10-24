@@ -28,36 +28,47 @@ Built with Tauri, Svelte, Rust, and Flowbite
 - 🎯 **Collapsible Sidebar**: Space-efficient layout with collapsible panels
 - 📊 **Tabbed Results**: Organized results and messages in tabbed interface
 
-## 🚀 Quick Start
+## 🚀 Quick Start (Vue + Quasar frontend)
 
 ### Prerequisites
 
-- [Node.js](https://nodejs.org/) (v18 or higher)
-- [Rust](https://www.rust-lang.org/) (latest stable)
-- [pnpm](https://pnpm.io/) or npm
+- Node.js (v18 or higher)
+- Rust (latest stable)
+- npm
 
 ### Installation
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/yourusername/nebula.git
-   cd nebula
-   ```
+1. Clone the repository
 
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
+```bash
+git clone https://github.com/yourusername/nebula.git
+cd nebula
+```
 
-3. **Run in development mode**
-   ```bash
-   npm run tauri dev
-   ```
+2. Install dependencies
 
-4. **Build for production**
-   ```bash
-   npm run tauri build
-   ```
+```bash
+npm install
+```
+
+3. Run in development mode (frontend + Tauri)
+
+This project runs a Vite dev server on port 1420 to match Tauri's devUrl.
+
+```bash
+# start the frontend dev server
+npm run dev
+
+# in another terminal, run tauri dev (optional — runs both in many setups)
+npm run tauri
+```
+
+4. Build for production
+
+```bash
+npm run build
+npm run tauri build
+```
 
 ## 📖 Usage
 
