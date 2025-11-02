@@ -1,3 +1,34 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { contextBridge, ipcRenderer } from 'electron';
+
+contextBridge.exposeInMainWorld('nebulaAPI', {
+	loadConnections: async () => {
+		return await ipcRenderer.invoke('nebula:load-connections');
+	},
+	saveConnection: async (conn: any) => {
+		return await ipcRenderer.invoke('nebula:save-connection', conn);
+	},
+	deleteConnection: async (id: string) => {
+		return await ipcRenderer.invoke('nebula:delete-connection', id);
+	},
+	openFileDialog: async () => {
+		return await ipcRenderer.invoke('nebula:open-file');
+	},
+	runQuery: async (connectionId: string, sql: string) => {
+		return await ipcRenderer.invoke('nebula:run-query', { connectionId, sql });
+	}
+});
+
+// Extend API with settings methods
+contextBridge.exposeInMainWorld('nebulaAPI', Object.assign((window as any).nebulaAPI || {}, {
+  loadSettings: async () => {
+    return await ipcRenderer.invoke('nebula:load-settings');
+  },
+  saveSettings: async (obj: any) => {
+    return await ipcRenderer.invoke('nebula:save-settings', obj);
+  }
+}));
+
 /**
  * This file is used specifically for security reasons.
  * Here you can access Nodejs stuff and inject functionality into

@@ -28,7 +28,9 @@
     "cors": "^2.8.5",
     "helmet": "^6.0.1",
     "dotenv": "^16.3.1",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "monaco-editor": "^0.41.0",
+    "sql.js": "^1.8.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.14.0",
